@@ -9,8 +9,9 @@ a {
   list-style-type: none;
   color: #fff;
 }
-
 body {
+  background-image: url('https://static.wixstatic.com/media/0b79d7_91a8c0cd38c5489dbab09d16ff08197c~mv2.gif');
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,9 +19,20 @@ body {
   height: 100vh;
   width: 100%;
   font-family: monospace;
-  background: linear-gradient(45deg, #551bb3, #268fbe, #3c49be, #268fbe, #268fbe);
-  background-size: 300% 300%;
-  animation: colors 15s ease infinite;
+}
+main {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  
 }
 
 main {
@@ -33,7 +45,7 @@ main {
 
 
 .img__logo_home {
-  max-width: 500px;
+  max-width: 300px;
 }
 
 .title__home {
@@ -55,8 +67,8 @@ button{
   height: 70px;
   border-radius: 50px;
   border: 1px rgb(177, 237, 255) solid;
-  background-color: #649dcb;
-  color: #fff;
+  background-color: #adc2e4;
+  color: rgba(0, 0, 0, 0.838);
   font-size: 17px;
   font-weight: bold;
   cursor: pointer;
@@ -67,17 +79,7 @@ button:hover {
   background-color: #5ea4dd;
 }
 
-@keyframes colors {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+
 
 @keyframes cursorBlink {
   100% {

@@ -11,6 +11,22 @@
   }
   
   body {
+    background-image: url('https://static.wixstatic.com/media/0b79d7_91a8c0cd38c5489dbab09d16ff08197c~mv2.gif');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    font-family: monospace;
+  }
+  main {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,6 +38,15 @@
     background-size: 300% 300%;
     animation: colors 15s ease infinite;
   }
+  
+  main {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+  
   
   
   @keyframes colors {

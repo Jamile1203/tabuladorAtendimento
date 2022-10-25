@@ -3,14 +3,10 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
-  a {
-    text-decoration: none;
-    list-style-type: none;
-    color: #fff;
-  }
-  
-  body {
+
+  body{
+    background-image: url('https://static.wixstatic.com/media/0b79d7_91a8c0cd38c5489dbab09d16ff08197c~mv2.gif');
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,11 +14,7 @@
     height: 100vh;
     width: 100%;
     font-family: monospace;
-    background: linear-gradient(45deg, #551bb3, #268fbe, #3c49be, #268fbe, #268fbe);
-    background-size: 300% 300%;
-    animation: colors 15s ease infinite;
   }
-  
   main {
     height: 70vh;
     display: flex;
@@ -32,6 +24,10 @@
   }
   
   .img__logo_home {
+    max-width: 300px;
+    
+  }
+  .img__logo_sga {
     max-width: 500px;
   }
   
@@ -40,7 +36,7 @@
     border-right-width: 2px;
     border-right-style: solid;
     border-right-color: rgba(255, 255, 255, 0.4);
-    color: #fff;
+    color: rgb(17, 17, 81);
     font-size: 2em;
     animation: cursorBlink 1000ms steps(40) infinite normal,
       typing 10000ms steps(100) normal 1 both;
@@ -48,36 +44,20 @@
     max-width: 0vw;
     overflow: hidden;
   }
-  
   button{
-    width: 250px;
-    height: 70px;
-    border-radius: 50px;
-    border: 1px rgb(177, 237, 255) solid;
-    background-color: #649dcb;
-    color: #fff;
+    width: 100px;
+    padding: 10px;
+    background-color: #032991;
+    color: rgb(255, 255, 255);
     font-size: 17px;
-    font-weight: bold;
     cursor: pointer;
+    border-radius: 10px;
   }
-  
   button:hover {
     transition: 300ms;
     background-color: #5ea4dd;
   }
-  
-  @keyframes colors {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  
+
   @keyframes cursorBlink {
     100% {
       border-right-color: transparent;

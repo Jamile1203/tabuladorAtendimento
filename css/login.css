@@ -15,6 +15,22 @@
   }
   
   body {
+    background-image: url('https://static.wixstatic.com/media/0b79d7_91a8c0cd38c5489dbab09d16ff08197c~mv2.gif');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    font-family: monospace;
+  }
+  main {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,6 +52,10 @@
   }
   
   .img__logo_home {
+    max-width: 300px;
+    
+  }
+  .img__logo_sga {
     max-width: 500px;
   }
   
@@ -87,6 +107,7 @@ h1{
     justify-content: center;
     padding: 20px;
     font-size: 30px;
+    color: black;
 }
 div{
     position: absolute;
@@ -105,13 +126,17 @@ input{
     outline: none;
     font-size: 15px;
 }
+button{
+  background-color: #adc2e4;
+  color: rgb(1, 1, 1);
+}
 .inputSubmit{
-    background-color: rgb(22, 112, 202);
+    background-color: rgb(29, 95, 160);
     border: none;
     padding: 15px;
     width: 100%;
     border-radius: 10px;
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 15px;
     
