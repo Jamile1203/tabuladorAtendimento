@@ -23,18 +23,20 @@
         $nome= $_POST['nome'];
         $email= $_POST['email'];
         $telefone= $_POST['telefone'];
-        $tipo_atendimento= $_POST['atendimento'];
-        $data_atendimento= $_POST['data_atendimento'];
+        $tipo_de_atendimento= $_POST['atendimento'];
+        $data_de_atendimento= $_POST['data_atendimento'];
         $horario_inicial= $_POST['horario_inicial'];
         $horario_final= $_POST['horario_final'];
-        $motivo_atendimento= $_POST['motivo_atendimento'];
+        $motivo_do_atendimento= $_POST['motivo_atendimento'];
         $area= $_POST['area'];
 
 
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,telefone,email,tipo_de_atendimento,area,data_de_atendimento, horario_inicial, horario_final, motivo_do_atendimento)
-        VALUES('$nome','$telefone','$email','$tipo_atendimento','$data_atendimento','$horario_inicial','$horario_final','$motivo_atendimento','$area')");
-
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,telefone,email,tipo_de_atendimento,data_de_atendimento, horario_inicial, horario_final, motivo_do_atendimento,area)
+        VALUES('$nome','$telefone','$email','$tipo_de_atendimento','$data_de_atendimento','$horario_inicial','$horario_final','$motivo_do_atendimento','$area')");
+ header('Location:listar.php');
     }
+
+   
 ?>
 
 <!DOCTYPE html>
@@ -185,10 +187,10 @@
                     <label for="motivo_atendimento"  class="labelInput">Motivo do Atendimento</label>
                 </div>
                 <br><br>
-                <input type="submit" name="submit" id="submit">
-                
+                <input type="submit" name="submit" id="submit">      
             </fieldset>
         </form>
     </div>
 </body>
+
 </html>

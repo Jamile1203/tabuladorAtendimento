@@ -42,16 +42,16 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário Cliente</title> 
+    <title>Edição de Registros</title>
 </head>
 <body>
-<style>
-    body{
+    <style>
+          body{
             font-family: Arial, Helvetica, sans-serif;
             background-image: url('https://static.wixstatic.com/media/0b79d7_91a8c0cd38c5489dbab09d16ff08197c~mv2.gif');
             background-size: cover;
@@ -125,6 +125,7 @@
             background-color: blue;
         }
 </style>
+
 <a href="listar.php">Voltar</a>
     <div class="box">
         <form action="saveEdit.php" method="POST">
@@ -195,4 +196,5 @@
         </form>
     </div>
 </body>
+
 </html>
