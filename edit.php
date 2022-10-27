@@ -1,39 +1,43 @@
 <?php
 
-    if(isset($_POST['submit']))
+
+
+    if(!empty($_GET['id']))
     {
-        //print_r('Nome: ' . $_POST['nome']);
-        //print_r('<br>');
-        //print_r('Email: ' . $_POST['email']);
-        //print_r('<br>');
-        // print_r('Telefone: ' . $_POST['telefone']);
-        // print_r('<br>');
-        // print_r('Tipo de Atendimento: ' . $_POST['atendimento']);
-        // print_r('<br>');
-        // print_r('Data do Atendimento: ' . $_POST['data_atendimento']);
-        // print_r('<br>');
-        //print_r('Horário Inicial: ' . $_POST['horario_inicial']);
-        // print_r('<br>');
-        // print_r('Horário Final: ' . $_POST['horario_final']);
-        // print_r('<br>');
-        // print_r('Motivo do Atendimento: ' . $_POST['motivo_atendimento']);
-     
         include_once('config.php');
 
-        $nome= $_POST['nome'];
-        $email= $_POST['email'];
-        $telefone= $_POST['telefone'];
-        $tipo_atendimento= $_POST['atendimento'];
-        $data_atendimento= $_POST['data_atendimento'];
-        $horario_inicial= $_POST['horario_inicial'];
-        $horario_final= $_POST['horario_final'];
-        $motivo_atendimento= $_POST['motivo_atendimento'];
-        $area= $_POST['area'];
 
+        $id = $_GET['id'];
 
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,telefone,email,tipo_de_atendimento,area,data_de_atendimento, horario_inicial, horario_final, motivo_do_atendimento)
-        VALUES('$nome','$telefone','$email','$tipo_atendimento','$data_atendimento','$horario_inicial','$horario_final','$motivo_atendimento','$area')");
+        $sqlSelect = "SELECT * FROM usuarios WHERE id=$id";
 
+        $result = $conexao->query($sqlSelect);
+
+        if($result -> num_rows > 0){
+
+        while($user_data = mysqli_fetch_assoc($result)){
+
+        $nome= $user_data['nome'];
+        $email= $user_data['email'];
+        $telefone= $user_data['telefone'];
+        $tipo_de_atendimento= $user_data['tipo_de_atendimento'];
+        $data_de_atendimento= $user_data['data_de_atendimento'];
+        $horario_inicial= $user_data['horario_inicial'];
+        $horario_final= $user_data['horario_final'];
+        $motivo_do_atendimento= $user_data['motivo_do_atendimento'];
+        $area=$user_data['area'];
+
+        }
+        
+    }
+
+        else{
+            header('Location: listar.php');
+        }  
+
+    }
+    else{
+        header('Location: listar.php');
     }
 ?>
 
@@ -107,7 +111,7 @@
             font-size: 15px;
         }
        
-        #submit{
+        #update{
             background-color: dodgerblue;
             width: 100%;
             border: none;
@@ -117,76 +121,76 @@
             cursor: pointer;
             border-radius: 10px;
         }
-        #submit:hover{
+        #update:hover{
             background-color: blue;
         }
 </style>
+<a href="listar.php">Voltar</a>
     <div class="box">
-        <form action="formulariocliente.php" method="POST">
+        <form action="saveEdit.php" method="POST">
             <fieldset>
                 <legend><b>Tabulador de Atendimento</b></legend>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <input type="text" name="nome" id="nome" class="inputUser" value=<?php echo $nome;?> required>
                     <label for="nome" class="labelInput">Nome completo</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="text" name="email" id="email" class="inputUser" required>
+                    <input type="text" name="email" id="email" class="inputUser" value=<?php echo $email;?> required>
                     <label for="email" class="labelInput">Email</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                    <input type="tel" name="telefone" id="telefone" class="inputUser" value=<?php echo $telefone;?> required>
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
                 <p>Tipo de Atendimento:</p>
-                <input type="radio" id="chat" name="atendimento" value="chat" required>
+                <input type="radio" id="chat" name="atendimento" value="chat" <?php echo ($tipo_de_atendimento == 'chat') ? 'checked' : '';?> required>
                 <label for="chat">Chat</label>
                 <br>
-                <input type="radio" id="telefone" name="atendimento" value="telefone" required>
+                <input type="radio" id="telefone" name="atendimento" value="telefone"  <?php echo ($tipo_de_atendimento == 'telefone') ? 'checked' : '';?>  required>
                 <label for="telefone">Telefone</label>
                 <br>
-                <input type="radio" id="email" name="atendimento" value="email" required>
+                <input type="radio" id="email" name="atendimento" value="email"  <?php echo ($tipo_de_atendimento == 'email') ? 'checked' : '';?>  required>
                 <label for="email">E-mail</label>
                 <br>
-                <input type="radio" id="presencial" name="atendimento" value="presencial" required>
+                <input type="radio" id="presencial" name="atendimento" value="presencial"  <?php echo ($tipo_de_atendimento == 'presencial') ? 'checked' : '';?>  required>
                 <label for="presencial">Presencial</label>
                 <br>
 
                 <p>Área:</p>
-                <input type="radio" id="fiscalização" name="area" value="fiscalização" required>
+                <input type="radio" id="fiscalização" name="area" value="fiscalização"  <?php echo ($area == 'fiscalizacao') ? 'checked' : '';?>  required>
                 <label for="fiscalização">Fiscalização</label>
                 <br>
-                <input type="radio" id="juridico" name="area" value="juridico" required>
+                <input type="radio" id="juridico" name="area" value="juridico" <?php echo ($area == 'juridico') ? 'checked' : '';?> required>
                 <label for="juridico">Jurídico</label>
                 <br>
-                <input type="radio" id="financeiro" name="area" value="financeiro" required>
+                <input type="radio" id="financeiro" name="area" value="financeiro" <?php echo ($area == 'financeiro') ? 'checked' : '';?> required>
                 <label for="financeiro">Financeiro</label>    
                 <br><br>
 
                  
                 <label for="data_atendimento"><b>Data do Atendimento</b></label>
-                <input type="date" name="data_atendimento" id="data_atendimento" required>
+                <input type="date" name="data_atendimento" id="data_atendimento" value="<?php echo $data_de_atendimento;?>" required>
                 <br><br>
                  
                 <label for="horario_inicial"><b>Horário Inicial</b></label>
-                <input type="time" name="horario_inicial" id="horario_inicial" required>
+                <input type="time" name="horario_inicial" id="horario_inicial" value=<?php echo $horario_inicial;?> required>
                 <br><br>
-                <div class="area">
+                
                 <label for="horario_final"><b>Horário Final</b></label>
-                <input type="time" name="horario_final" id="horario_final" required>
+                <input type="time" name="horario_final" id="horario_final" value=<?php echo $horario_final;?> required>
                 <br><br>
                 </div>
                 
                 <div class="inputBox">
-                
-                    <input type="text" name="motivo_atendimento" id="motivo_atendimento" cols="20" rows="10" class="inputUser" required>
-                    <label for="motivo_atendimento"  class="labelInput">Motivo do Atendimento</label>
+                    <input type="text" name="motivo_atendimento" id="motivo_atendimento" cols="20" rows="10" class="inputUser" value=<?php echo $motivo_do_atendimento;?> required>
+                    <label for="motivo_atendimento"  class="labelInput">Motivo do Atendimento </label>
                 </div>
-                <br><br>
-                <input type="submit" name="submit" id="submit">
-                
+                <br><br> 
+                <input type="hidden" name="id" value="<?php echo $id ?>">
+                <input type="submit" name="update" id="update">         
             </fieldset>
         </form>
     </div>
