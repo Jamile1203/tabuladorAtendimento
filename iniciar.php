@@ -77,7 +77,7 @@ main {
   overflow: hidden;
 }
 
-button{
+.button{
   width: 250px;
   height: 70px;
   border-radius: 50px;
@@ -89,7 +89,7 @@ button{
   cursor: pointer;
 }
 
-button:hover {
+.button:hover {
   transition: 300ms;
   background-color: #5ea4dd;
 }
@@ -112,12 +112,11 @@ button:hover {
     <a class="back" href="home.html">Voltar</a>
     <main>
       <div>
-        <img class="img__logo_home" src="/img/CRABA.png" alt="logo_CRABA" />
-        <img class="img__logo_sga" src="/img/logo.png" alt="">
-        
+        <img src="/img/CRABA.png" alt="">       
       </div>
       <div>
-        <a href="http://localhost/tabuladorAtendimento-main/formulario.php"><button>Iniciar Atendimento</button></a>
+        
+      <input class="button" type="button" value ="Iniciar Atendimento" onclick="window.location='formulariocliente.php'"; /> 
       </div>    
     </main>
   </body>

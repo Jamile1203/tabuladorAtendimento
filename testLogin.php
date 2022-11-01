@@ -30,7 +30,7 @@ session_start();
    else{
     $_SESSION['email'] = $email;  //acessa com esses dados
     $_SESSION['senha'] = $senha;
-    header('Location: formulariocliente.php'); // se existir
+    header('Location: iniciar.php'); // se existir
    }
 
 }

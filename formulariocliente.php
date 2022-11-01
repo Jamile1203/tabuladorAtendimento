@@ -17,7 +17,8 @@
         // print_r('Horário Final: ' . $_POST['horario_final']);
         // print_r('<br>');
         // print_r('Motivo do Atendimento: ' . $_POST['motivo_atendimento']);
-     
+    
+
         include_once('config.php');
 
         $nome= $_POST['nome'];
@@ -122,9 +123,11 @@
         #submit:hover{
             background-color: blue;
         }
+       
+
 </style>
     <div class="box">
-        <form action="formulariocliente.php" method="POST">
+        <form action="formulariocliente.php" method="POST" id="formulario">
             <fieldset>
                 <legend><b>Tabulador de Atendimento</b></legend>
                 <br>
@@ -170,10 +173,66 @@
                  
                 <label for="data_atendimento"><b>Data do Atendimento</b></label>
                 <input type="date" name="data_atendimento" id="data_atendimento" required>
+                
+
+                <script>
+                    var form= document.getElementById('formulario');
+                    var apData = document.getElementById("data_atendimento");
+            
+                    function atualizarData(){
+                   
+                       VarDate = new Date().toLocaleDateString("pt-br", {
+                            timeZone:"America/Bahia"  
+                        });
+                        var formatarData = data.replace(", ", " - ");
+                        apData.value = formatarData;
+                    }
+                    atualizarData();
+                    
+                    
+                </script>
                 <br><br>
-                 
+                
+                <div class="relogio">
                 <label for="horario_inicial"><b>Horário Inicial</b></label>
-                <input type="time" name="horario_inicial" id="horario_inicial" required>
+               <!-- <p id="horario_inicial" </p> -->
+              
+
+                
+        <div>
+        <p type="time" name="horario_inicial" id="horario_inicial" required ></p>
+            <span id="horas">00</span>
+            <span class="tempo"></span>
+            <span id="minutos">00</span>
+            <span class="tempo"></span>
+            <span id="segundos">00</span>
+        </div>
+                </div>
+
+                <script>
+const horas = document.getElementById('horas');
+const minutos = document.getElementById('minutos');
+const segundos = document.getElementById('segundos');
+
+const relogio = setInterval(function time() {
+    let dateToday = new Date();
+    let hr = dateToday.getHours();
+    let min = dateToday.getMinutes();
+    let s = dateToday.getSeconds();
+
+    if (hr < 10) hr = '0' + hr;
+
+    if (min < 10) min = '0' + min;
+
+    if (s < 10) s = '0' + s;
+
+    horas.textContent = hr;
+    minutos.textContent = min;
+    segundos.textContent = s;
+
+})
+                </script>
+                
                 <br><br>
                 <div class="area">
                 <label for="horario_final"><b>Horário Final</b></label>
